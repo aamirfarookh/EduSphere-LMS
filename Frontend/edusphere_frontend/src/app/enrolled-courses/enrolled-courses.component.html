@@ -1,0 +1,18 @@
+<div class="px-20">
+    <h1 class="text-2xl font-extrabold mb-4 text-center pt-10">My Courses</h1>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div *ngFor="let course of enrolled_courses" class="p-4 border rounded-lg shadow-md">
+        <img class="p-4 border rounded-lg shadow-md" src="https://img.freepik.com/free-vector/portrait-programmer-working-with-pc_23-2148222500.jpg?w=740&t=st=1693853191~exp=1693853791~hmac=897fde147dba2fc1f4c3054cbbf5b796dcf70261c513f860426a8544da0aee03" alt="">
+        <h3 class="text-lg font-extrabold">{{ course.course_name }}</h3>
+        <p class="text-sm text-gray-500">Course Code: {{ course.course_code }}</p>
+        <p class="text-sm text-gray-500">Department: Computer Science</p>
+        <p class="text-sm text-gray-500">Credits: {{ course.credits }}</p>
+        <!-- <p class="text-sm text-gray-500">Description: {{ course.description.split(" ").slice(1,30).join("") }}</p> -->
+        <p class="text-sm text-gray-500">Instructor: Test Instructor</p>
+        <button (click)="navigateToViewAssignments(course.id)" class="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">View Assignments</button>
+      </div>
+    </div>
+  </div>
+  <div>
+    <router-outlet></router-outlet> <!-- Load ViewAssignmentsComponent here -->
+  </div>

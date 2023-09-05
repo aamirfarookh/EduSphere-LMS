@@ -1,0 +1,42 @@
+.disabled-button {
+    cursor: not-allowed; /* Use "not-allowed" cursor style for disabled buttons */
+  }
+
+  .disabled-button {
+    cursor: not-allowed; /* Use "not-allowed" cursor style for disabled buttons */
+  }
+
+  .spinner-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(51, 51, 51, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Ensure the spinner is on top of other elements */
+  }
+  .spinner{
+    width: 50px;
+  height: 50px;
+  border: 3px solid #3498db;
+  border-top: 3px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  .success-snackbar {
+    background-color: #4caf50; /* Green background for success */
+    color: white; /* White text color for success */
+  }
+  
+  .error-snackbar {
+    background-color: #f44336; /* Red background for error */
+    color: white; /* White text color for error */
+  }

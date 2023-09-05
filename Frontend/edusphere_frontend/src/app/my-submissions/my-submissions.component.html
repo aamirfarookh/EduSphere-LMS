@@ -1,0 +1,51 @@
+
+<div class="mt-4">
+    <h1 class="text-center font-bold">My Submissions</h1>
+    <table class="min-w-full divide-y divide-gray-200">
+        <thead>
+          <tr>
+            <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              Assignment Name
+            </th>
+            <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              Submission Status
+            </th>
+            <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              Remarks
+            </th>
+            <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              Submission Date
+            </th>
+            <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              Submission Link
+            </th>
+          </tr>
+        </thead>
+        <tbody class="bg-white divide-y divide-gray-200">
+          <tr *ngFor="let submission of submissions">
+            <td class="px-6 py-4 whitespace-nowrap">
+              {{ submission.assignment_name }}
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap">
+              <span [ngClass]="{
+                'bg-green-100 text-green-800': submission.status === 'Submitted',
+                'bg-red-100 text-red-800': submission.status === 'Late'
+              }" class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full">
+                {{ submission.status }}
+              </span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap">
+              {{submission.remarks ? submission.remarks : 'No remarks yet'}}
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap">
+              {{ submission.submission_date | date: 'dd/MM/yyyy' }}
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-blue-500 hover:underline">
+              <a href="{{ submission.submission }}" target="_blank">{{ submission.submission }}</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+
+  

@@ -1,0 +1,55 @@
+<!-- view-assignments.component.html -->
+<div class="py-4 px-2">
+    <a href="/student-dash" class="w-[12%] mt-2 bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded-md focus:outline-none focus:ring flex items-center space-x-4">
+        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 12 16">
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1v14m8.336-.479-6.5-5.774a1 1 0 0 1 0-1.494l6.5-5.774A1 1 0 0 1 11 2.227v11.546a1 1 0 0 1-1.664.748Z"/>
+          </svg>
+      <span>Dashboard</span>
+    </a>
+</div>
+
+<div class="mx-auto max-w-2xl p-4 bg-white shadow-md rounded-lg">
+    <table class="w-full table-auto">
+      <thead>
+        <tr>
+          <th class="px-4 text-left">Assignment Title</th>
+          <th class="px-4 py-2 text-left">Due Date</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let assignment of assignments"
+          class="cursor-pointer hover:bg-gray-100"
+          (click)="showAssignmentDetails(assignment)"
+        >
+          <td class="px-4 py-2">{{ assignment.title }}</td>
+          <td class="px-4 py-2 ">{{ assignment.due_date }}</td>
+          
+        </tr>
+      </tbody>
+    </table>
+  
+    <div *ngIf="selectedAssignment" class="mt-4">
+      <h2 class="text-2xl font-bold mb-2">{{ selectedAssignment.title }}</h2>
+      <p class="text-gray-700">{{ selectedAssignment.description }}</p>
+      <p class="text-gray-700 mt-2 font-bold bg-amber-300 inline">Due Date: {{ selectedAssignment.due_date }} at 11:59 PM</p>
+  
+      <div class="mt-4">
+        <input
+          type="text"
+          placeholder="Enter your submission link"
+          class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-indigo-500"
+          [(ngModel)]="submissionData[selectedAssignment.id]"
+        >
+        <button
+          class="mt-2 bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded-md focus:outline-none focus:ring"
+          (click)="submitAssignment()" 
+        >
+          Submit Assignment
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  
