@@ -48,7 +48,7 @@ export class StudentSignupComponent {
     const formData = this.signupForm.value;
     this.loading = true;
     // Make an HTTP POST request to the student signup endpoint
-    this.http.post('http://localhost:8000/api/students/signup/', formData).subscribe(
+    this.http.post('http://52.66.38.71/api/students/signup/', formData).subscribe(
       (response: any) => {
         // Check the response from the backend
         this.loading = false;

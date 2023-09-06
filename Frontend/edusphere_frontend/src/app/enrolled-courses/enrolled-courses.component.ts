@@ -12,7 +12,7 @@ export class EnrolledCoursesComponent implements OnInit {
   enrolled_courses: any[] = [];
   access_token: string =  localStorage.getItem("access_token") || ""
    selectedCourse: any = null;
-
+   
   showAlert(title,text,status,button) {
     Swal.fire({
       title,
@@ -32,8 +32,10 @@ export class EnrolledCoursesComponent implements OnInit {
       'Authorization': `Bearer ${this.access_token}`
     });
 
+    console.log(this.access_token)
+
     const options = { headers: headers };
-    this.http.get<any[]>('http://localhost:8000/api/students/enrolled-courses/',options).subscribe(
+    this.http.get<any[]>('http://52.66.38.71/api/students/enrolled-courses/',options).subscribe(
       (data) => {
         this.enrolled_courses = data;
       },

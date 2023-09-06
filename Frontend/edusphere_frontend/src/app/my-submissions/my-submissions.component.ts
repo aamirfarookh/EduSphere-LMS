@@ -32,7 +32,7 @@ export class SubmissionsComponent implements OnInit {
     });
 
     const options = { headers: headers };
-    this.http.get<any[]>('http://localhost:8000/api/students/submissions/',options)
+    this.http.get<any[]>('http://52.66.38.71/api/students/submissions/',options)
       .subscribe(
         (data) => {
           this.submissions = data;

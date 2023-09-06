@@ -41,7 +41,7 @@ export class StudentLoginComponent {
       // this.spinner.show();
       this.loading = true;
       // Make an HTTP POST request to the student login endpoint
-      this.http.post<any>('http://localhost:8000/api/students/login/', formData).subscribe(
+      this.http.post<any>('http://52.66.38.71/api/students/login/', formData).subscribe(
         (response) => {
           // Handle the successful login response here
           // Assuming you receive access_token and refresh_token in the response
@@ -51,6 +51,7 @@ export class StudentLoginComponent {
           localStorage.setItem('access_token', response.access);
           localStorage.setItem('refresh_token', response.refresh);
           // alert('Login Successful');
+          console.log(response)
           this.showAlert("SUCCESS","LOGIN SUCCESS","success","OK")
           this.showAlert("SUCCESS","Welcome to Dashboard","success","OK")
           this.router.navigate(['/student-dash']);

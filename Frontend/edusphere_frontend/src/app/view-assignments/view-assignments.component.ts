@@ -49,7 +49,7 @@ export class ViewAssignmentsComponent implements OnInit {
     });
 
     const options = { headers: headers };
-    const apiUrl = `http://localhost:8000/api/students/assignments/${courseID}/`;
+    const apiUrl = `http://52.66.38.71/api/students/assignments/${courseID}/`;
 
     this.http.get(apiUrl,options).subscribe((data: any[]) => {
       this.assignments = data;
@@ -109,7 +109,7 @@ export class ViewAssignmentsComponent implements OnInit {
     };
   
     // Define the API URL
-    const apiUrl = 'http://localhost:8000/api/students/submit-assignment/';
+    const apiUrl = 'http://52.66.38.71/api/students/submit-assignment/';
   
     // Define headers with authorization token
     const headers = new HttpHeaders({

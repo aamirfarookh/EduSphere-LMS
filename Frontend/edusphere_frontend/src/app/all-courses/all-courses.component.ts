@@ -27,7 +27,7 @@ export class AllCoursesComponent implements OnInit {
               ) {}
 
   ngOnInit(): void {
-    this.http.get<any[]>('http://localhost:8000/api/students/courses/').subscribe(
+    this.http.get<any[]>('http://52.66.38.71/api/students/courses/').subscribe(
       (data) => {
         this.courses = data;
       },
@@ -43,7 +43,7 @@ export class AllCoursesComponent implements OnInit {
     });
 
     const options = { headers: headers };
-    this.http.post<any>('http://localhost:8000/api/students/enroll/', { course:courseId,student:1} , options).subscribe(
+    this.http.post<any>('http://52.66.38.71/api/students/enroll/', { course:courseId,student:1} , options).subscribe(
       (response) => {
         // Handle successful enrollment, e.g., show a success message
         console.log('Enrollment successful:', response);
